@@ -489,3 +489,32 @@ API
 Training
 Blog
 About
+
+
+import unittest
+from unittest.mock import patch, mock_open
+import your_module  # replace with the name of your module
+
+class TestYourModule(unittest.TestCase):
+    @patch('your_module.platform.system')
+    def test_get_current_os(self, mock_system):
+        mock_system.return_value = 'Windows'
+        self.assertEqual(your_module.get_current_os(), 'Windows')
+
+    @patch('your_module.platform.system')
+    def test_get_updates(self, mock_system):
+        mock_system.return_value = 'Windows'
+        # assuming get_updates returns a boolean indicating success
+        self.assertTrue(your_module.get_updates())
+
+    @patch('your_module.requests.get')
+    @patch('builtins.open', new_callable=mock_open)
+    def test_download_file(self, mock_open, mock_get):
+        mock_get.return_value.content = b'test content'
+        your_module.download_file('http://example.com', 'example.txt')
+        mock_open.assert_called_once_with('example.txt', 'wb')
+        handle = mock_open()
+        handle.write.assert_called_once_with(b'test content')
+
+if __name__ == '__main__':
+    unittest.main()
