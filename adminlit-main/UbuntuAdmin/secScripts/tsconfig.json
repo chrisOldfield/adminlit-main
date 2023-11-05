@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "types": ["chrome"],
+    "lib": ["es2017", "dom"],
+    "target": "ES2020"
+  }
+}

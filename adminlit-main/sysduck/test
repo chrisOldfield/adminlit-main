@@ -1,0 +1,31 @@
+# Title: List .dll files older than 2020
+# Description: This script lists all .dll files in the current directory and subdirectories that are older than 2020.
+# Author: SysDuck
+# Date: 2021-07-09
+# Version: 1.0.0
+# Usage: Run the script in the directory you want to search in.
+
+
+@echo off
+setlocal enabledelayedexpansion
+
+echo Listing .dll files older than 2020:
+for /r %%i in (*.dll) do (
+    for /f "tokens=1-3" %%a in ('dir /tc "%%i" ^| find "%%~nxi"') do (
+        set "year=%%c"
+        if !year! lss 2020 (
+            echo File: "%%i"
+            echo Created: %%a %%b %%c
+            echo.
+            tasklist /FI "MODULES eq %%~nxi" 2>NUL | findstr /I "%%~nxi" && (
+                echo Associated Process(es):
+                tasklist /M "%%~nxi"
+            )
+        )
+    )
+)
+
+endlocal
+
+
+REM Path: adminlit-main/sysduck/test
