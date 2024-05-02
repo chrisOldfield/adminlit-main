@@ -52,7 +52,7 @@ This guide provides steps to update and set WSL 2 as the default version and ins
 
 9. **Install a Windows X server to enable GUI applications:**
     - Download and install a Windows X server such as VcXsrv from the following link:
-    [https://sourceforge.net/projects/vcxsrv/](https://sourceforge.net/projects/vcxsrv/)
+      [https://sourceforge.net/projects/vcxsrv/](https://sourceforge.net/projects/vcxsrv/)
 
 10. **Configure the X server:**
     - Launch the installed X server (e.g., VcXsrv) and accept the default settings.

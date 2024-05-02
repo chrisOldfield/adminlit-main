@@ -1,4 +1,4 @@
-#!/bin/bash
+##!/bin/bash
 
 # Save the above code into a file, for example, update_kernel.sh.
 

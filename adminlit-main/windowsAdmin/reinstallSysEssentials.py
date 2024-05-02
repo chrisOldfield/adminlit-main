@@ -1,20 +1,19 @@
-
 import platform
 import requests
-from requests import Response
+from requests.models import Response
 
 # Determine the current operating system
 current_os: str = platform.system()
 
 # Get the list of available updates for the current operating system
 if current_os == "Windows":
-    # Use the Windows Update service to check for updates
-    # (replace with appropriate code for your OS)
-    pass
+	# Use the Windows Update service to check for updates
+	# (replace with appropriate code for your OS)
+	pass
 elif current_os == "Linux":
-    # Use the package manager to check for updates
-    # (replace with appropriate code for your OS)
-    pass
+	# Use the package manager to check for updates
+	# (replace with appropriate code for your OS)
+	pass
 
 # Download the latest versions of Git, Python 3, Google Chrome,
 # Visual Studio Code, Office 365, Firefox, and NVIDIA Gforce Experience
@@ -33,4 +32,5 @@ r = requests.get(python_url)
 open(python_file, "wb").write(r.content)
 
 # Google Chrome
-chrome_url = "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B9E7C4791-E9D7-8F44-8E12-E1D6"
+chrome_url = ("https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B9E7C4791"
+              "-E9D7-8F44-8E12-E1D6")
